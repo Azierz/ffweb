@@ -27,9 +27,10 @@ if (isset($_SESSION['stud_id'])) {
 			<li><a href="logout.php">Logout</a></li>';
 } else {
 	echo '
-	<li><a href="index.php">Home Page</a></li>
-	<li><a href="login.php">Login</a></li>
-	<li><a href="register.php">Program Registration</a></li>';
+	<li><a href="login.php">Sign In</a></li>
+	<li><a href="aboutus.php">About Us</a></li>
+	<li><a href="menu.php">Menu</a></li>
+	<li><a href="index.php">Home</a></li>';
 }
 ?>
 		</ul>
