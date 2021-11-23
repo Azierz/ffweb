@@ -106,6 +106,9 @@ include ('includes/header2.php');
 		</tr>
 	</table>
 	<p align="right"><input type="submit" name="submit" value="Login" /></p>
+</form>
+
+<form action="register.php" method="get">
 	<p align="right"><input type="submit" name="submit" value="Register" /></p>
 </form>
 
