@@ -183,7 +183,19 @@ span.first {
 	color: black;
 }
 
+#content #menu tbody, table{
+	border: 1px groove black;
+	margin: 1% 15%;
+	width: 70%;
+	table-layout: fixed;
+}
 
+#menu tr th, td{
+	padding: 10px;
+	border: 1px solid black;
+	width: auto;
+	text-align: center;
+}
 
 /* slideshow - content  */
 #content .mySlides {display: none;}

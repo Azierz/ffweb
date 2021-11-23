@@ -18,6 +18,41 @@ include ('includes/header2.php');
 
 	<p><i>** Please LOGIN to access all the pages</i></p>
 
+<table id="menu">
+	<tr>
+		<th>Fruit(s):</th>
+		<th>Price:</th>
+		<th>Quantity</th>
+		<th>Add To Cart</th>
+	</tr>
+	<?php
+	require ('includes/constants.php');
+
+	$q = "SELECT * FROM product";
+	$r = @mysqli_query ($dbc,$q);
+
+	if (!mysqli_num_rows($r) == 1) {
+		echo '<tr><td colspan="3">ALL PRODUCT OUT OF STOCK</td></tr>';
+	} else {
+	while ($data = mysqli_fetch_array($r)) {
+		echo "
+		<tr>
+			<td>".$data['Name']."</td>
+			<td>RM ".$data['Price']."</td>
+			<td>".$data['Quantity']."</td>
+			<td>";
+			if ($data['Quantity'] > 0) {
+				echo "<a href=#>See Detail</a>";
+			} else {
+				echo "Out of Stock";
+			}
+			"</td>
+		</tr>
+		";
+	}}
+	?>
+</table>
+
 <?php
 include ('includes/footer.html');
 ?>
