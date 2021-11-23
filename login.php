@@ -4,11 +4,11 @@ $page_title = 'Login Form';
 $page_text = 'Login Form';
 include ('includes/header2.php');
 
-if (!empty($_SESSION['user_id']) || !empty($_SESSION['admin_id'])) {
+if (!empty($_SESSION['CustID'])){
 	echo '
 		<script>
 		window.alert("\nALREADY LOGGED IN!");
-		setTimeout(function(){location.href="profile.php"},0);
+		setTimeout(function(){location.href="index.php"},0);
 		</script>';
 }
 
@@ -48,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			// Set the session data:
 			session_start();
-			$_SESSION['user_id'] = $row['user_id'];
-			$_SESSION['email'] = $em;
-			$_SESSION['profile_pic'] = $row['profile_pic'];
+			$_SESSION['CustID'] = $row['CustID'];
+			$_SESSION['Email'] = $em;
+			//$_SESSION['profile_pic'] = $row['profile_pic'];
 
 			// Redirect user
 			header("Location:index.php");

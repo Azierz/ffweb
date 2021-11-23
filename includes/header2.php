@@ -17,7 +17,7 @@
 		<ul>
 
 		<?php // Create a login/logout link:
-if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['CustID'])) {
 	echo '
 	<li><a href="view_users.php">View Users</a></li>
 	<li><a href="num.php">Compare Number</a></li>
