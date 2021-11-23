@@ -39,7 +39,7 @@ body {
 	border-bottom:1px solid #999;
 	height:80px;
 	margin:0 auto;
-	width:751px;
+	width:70vw;
 	background:#FDFDAD;
 	position: relative;
 
@@ -71,6 +71,13 @@ body {
 	text-shadow: 2px 2px #FCFC00;
 }
 
+#header img{
+	width: 100%;
+	height: auto;
+	z-index: -1;
+	background-repeat: repeat-y;
+}
+
 span.first {
 	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #000000;
 }
@@ -82,12 +89,14 @@ span.first {
 
 /* navigation */
 #navigation {
-	background:#FDFDAD;
+	background-color: #FDFDAD;
 	border-right:1px solid #999;
 	margin:0 auto;
-	width:751px;
+	width:70vw;
 	height:40px;
 	list-style:none;
+	z-index: 2;
+	position: relative;
 
 
 	border-left: 3px groove;
@@ -124,8 +133,11 @@ span.first {
 	height:auto;
 	margin:0 auto;
 	padding:0 0 20px;
-	width:751px;
+	width:70vw;
 	background-color: #FDFDAD;
+
+	z-index: 2;
+	position: relative;
 
 	border-left: groove;
 	border-right: groove;
@@ -152,11 +164,14 @@ table, h2, legend {
 	border-top:1px solid black;
 	height:50px;
 	margin:0 auto;
-	padding:10px;
+	padding:10px 0px;
 	text-align:center;
-	width:731px;
+	width:70vw;
 	background-color: #FDFDAD;
 	color: black;
+
+	z-index: 2;
+	position: relative;
 
 	border-bottom: 3px groove;
 	border-left: 3px groove;

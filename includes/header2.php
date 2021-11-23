@@ -8,7 +8,8 @@
 </head>
 <body>
 	<div id="header">
-		<img src = "includes/fff.jpg" style="width: 100%; height: auto;">
+		<img src = "includes/fff.jpg">
+		<img src = "includes/fff.jpg">
 		<h1>Fruity Fruit </h1>
 		<h2><?php echo $page_text; ?> </h2>
 
@@ -19,10 +20,10 @@
 		<?php // Create a login/logout link:
 if (isset($_SESSION['CustID'])) {
 	echo '
-	<li><a href="view_users.php">View Users</a></li>
-	<li><a href="num.php">Compare Number</a></li>
-	<li><a href="calc.php">BMI Calculator</a></li>
-	<li><a href="logout.php">Logout</a></li>';
+	<li><a href="logout.php">Logout</a></li>
+	<li><a href="aboutus.php">About Us</a></li>
+	<li><a href="menu.php">Menu</a></li>
+	<li><a href="index.php">Home</a></li>';
 } else {
 	echo '
 	<li><a href="login.php">Sign In</a></li>
