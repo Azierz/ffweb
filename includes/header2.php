@@ -20,7 +20,7 @@
 		<?php // Create a login/logout link:
 if (isset($_SESSION['CustID'])) {
 	echo '
-	<li><a href="logout.php">Logout</a></li>
+	<li><a href="logout.php">Sign Out</a></li>
 	<li><a href="aboutus.php">About Us</a></li>
 	<li><a href="menu.php">Menu</a></li>
 	<li><a href="index.php">Home</a></li>';
