@@ -87,6 +87,15 @@ span.first {
 	padding: 10px;
 }
 
+.cart {
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+	margin-right: 0.6rem;
+	margin-left: 0.3rem;
+	font-size: 2rem;
+	float: right;
+}
+
 /* navigation */
 #navigation {
 	background-color: #FDFDAD;
@@ -174,9 +183,7 @@ span.first {
 	color: black;
 }
 
-table, h2, legend {
-	color: black;
-}
+
 
 /* slideshow - content  */
 #content .mySlides {display: none;}

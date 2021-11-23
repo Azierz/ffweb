@@ -13,8 +13,14 @@
 	</div>
 	<div id="navigation">
 		<ul>
+			<div class="search-container">
+				<form action="/action_page.php">
+					<input type="text" placeholder="Search.." name="search" size="25">
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</form>
+			</div>
 
-
+			<a class="cart" href="#"><i class="fa fa-shopping-cart"></i></a>
 			<li><a href="logout.php">Sign out</a></li>
 			<li><a href="aboutus.php">About Us</a></li>
 			<li><a href="menu.php">Menu</a></li>
