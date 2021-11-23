@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 <h1>Register</h1>
 <form action="register.php" method="post">
-	<table border="0">
+	<table border="0" id="reg">
 		<tr>
 			<td>Full Name:</td>
 			<td><input type="text" name="name" size="15" maxlength="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>" /></td>
