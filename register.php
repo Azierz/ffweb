@@ -3,7 +3,7 @@
 
 $page_title = 'Register';
 $page_text = 'Registration Form';
-include ('includes/header2.html');
+include ('includes/header2.php');
 
 // Check for form submission:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

@@ -2,7 +2,7 @@
 
 $page_title = 'Login Form';
 $page_text = 'Login Form';
-include ('includes/header2.html');
+include ('includes/header2.php');
 
 // if (!empty($_SESSION['user_id']) || !empty($_SESSION['admin_id'])) {
 // 	echo '
@@ -37,13 +37,13 @@ include ('includes/header2.html');
 // 	if (empty($errors)) { // If everything's OK.
 
 // 		// Query for admin
-// 		$q = "SELECT admin_id, username FROM admin WHERE username='$un' AND password=SHA1('$p')";		
+// 		$q = "SELECT admin_id, username FROM admin WHERE username='$un' AND password=SHA1('$p')";
 // 		$r = @mysqli_query ($dbc, $q); // Run the query.
 
 // 		// Query for user
-// 		$q1 = "SELECT user_id, username, profile_pic FROM users WHERE username='$un' AND password=SHA1('$p')";		
+// 		$q1 = "SELECT user_id, username, profile_pic FROM users WHERE username='$un' AND password=SHA1('$p')";
 // 		$r1 = @mysqli_query ($dbc, $q1); // Run the query.
-		
+
 // 		// Check the result:
 // 		if (mysqli_num_rows($r) == 1) {
 
@@ -54,10 +54,10 @@ include ('includes/header2.html');
 // 			session_start();
 // 			$_SESSION['admin_id'] = $row['admin_id'];
 // 			$_SESSION['username'] = $un;
-			
+
 // 			// Redirect user
 // 			header("Location:profile.php");
-			
+
 // 		} elseif (mysqli_num_rows($r1) == 1) {
 
 // 			// Fetch the record:
@@ -68,7 +68,7 @@ include ('includes/header2.html');
 // 			$_SESSION['user_id'] = $row['user_id'];
 // 			$_SESSION['username'] = $un;
 // 			$_SESSION['profile_pic'] = $row['profile_pic'];
-			
+
 // 			// Redirect user
 // 			header("Location:profile.php");
 
@@ -92,14 +92,14 @@ include ('includes/header2.html');
 // } // End of the main submit conditional.
 
 // Display the form:?>
-<h1>LOGIN FORM</h1>	
+<h1>LOGIN FORM</h1>
 <form action="login.php" method="post">
 	<table style="font-size: 100%">
 		<tr>
 			<td><p>Username</p></td>
 			<td><p><input type="text" name="username" size="20"/></p></td>
 		</tr>
-		
+
 		<tr>
 			<td><p>Password</p></td>
 			<td><p><input type="password" name="pass" size="20"/></p></td>
@@ -108,5 +108,5 @@ include ('includes/header2.html');
 	<p align="right"><input type="submit" name="submit" value="Login" /></p>
 	<p align="right"><input type="submit" name="submit" value="Register" /></p>
 </form>
- 
+
 <?php include ('includes/footer.html'); ?>

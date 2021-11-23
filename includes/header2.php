@@ -1,3 +1,6 @@
+<?php
+	include ('includes/constants.php');
+?>
 <html>
 <head>
 	<title><?php echo $page_title; ?></title>
@@ -18,8 +21,8 @@
 		<?php // Create a login/logout link:
 if (isset($_SESSION['stud_id'])) {
 	echo '
-			
-			
+
+
 			<li><a href="view_users.php">View Users</a></li>
 			<li><a href="num.php">Compare Number</a></li>
 			<li><a href="calc.php">BMI Calculator</a></li>
