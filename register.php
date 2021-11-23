@@ -14,18 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (empty($_POST['name'])) {
 		$errors[] = 'You forgot to enter your first name.';
 	} else {
-		$fn = trim($_POST['name']);
+		$n = trim($_POST['name']);
 	}
 
 	// Check for a password and match against the confirmed password:
-	if (!empty($_POST['pass1'])) {
-		if ($_POST['pass1'] != $_POST['pass2']) {
-			$errors[] = 'Your password did not match the confirmed password.';
-		} else {
-			$p = trim($_POST['pass1']);
-		}
-	} else {
+	if (empty($_POST['pass1'])) {
 		$errors[] = 'You forgot to enter your password.';
+	} else {
+		$p = trim($_POST['pass1']);
 	}
 
 	// Validate the phone no:
@@ -41,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (empty($_POST['address'])) {
 		$errors[] = 'You forgot to enter your address.';
 	} else {
-		$ln = trim($_POST['address']);
+		$ad = trim($_POST['address']);
 	}
 
 	// Check for an email address:
@@ -55,10 +51,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		// Register the user in the database...
 
-		require ('mysqli_connect.php'); // Connect to the db.
+		require ('includes/constants.php'); // Connect to the db.
 
 		// Make the query:
-		$q = "INSERT INTO student (first_name, last_name, phone_no, email, Programme, password, registration_date) VALUES ('$fn', '$ln', '$pn', '$e', '$prg', SHA1('$p'), NOW() )";
+		$q = "INSERT INTO user VALUES (0, '$n', SHA1('$p'), '$pn', '$ad', '$e', NOW() )";
 		$r = mysqli_query ($dbc, $q); // Run the query.
 		if ($r) { // If it ran OK.
 
@@ -102,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<table border="0" id="reg">
 		<tr>
 			<td>Full Name:</td>
-			<td><input type="text" name="name" size="15" maxlength="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>" /></td>
+			<td><input type="text" name="name" size="15" maxlength="20" value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Password:</td>
