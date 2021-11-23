@@ -6,26 +6,17 @@ include ('includes/header2.php');
 
 <h1>Hi! Welcome to Fruity Fruit Website!</h1>
 
-
 	<div class="mySlides fade">
-	  <!-- <div class="numbertext">1 / 3</div> -->
-	  <img src="includes/dragon.jfif" style="width:100%">
-	  <!-- <div class="text">Caption Text</div> -->
+		<img src="includes/images/dragon.jfif" style="width:100%">
 	</div>
 
 	<div class="mySlides fade">
-	  <!-- <div class="numbertext">2 / 3</div> -->
-	  <img src="includes/orange.jpg" style="width:100%">
-	  <!-- <div class="text">Caption Two</div> -->
+		<img src="includes/images/orange.jpg" style="width:100%">
 	</div>
 
 	<div class="mySlides fade">
-	  <!-- <div class="numbertext">3 / 3</div> -->
-	  <img src="includes/trofruits.jpg" style="width:100%">
-	  <!-- <div class="text">Caption Three</div> -->
+		<img src="includes/images/trofruits.jpg" style="width:100%">
 	</div>
-
-<br>
 
 <script>
 var slideIndex = 0;

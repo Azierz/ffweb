@@ -95,23 +95,20 @@ span.first {
 	width:70vw;
 	height:40px;
 	list-style:none;
+
 	z-index: 2;
 	position: relative;
-
-
 	border-left: 3px groove;
 	border-right: 3px groove;
-
-
-
 }
+
 #navigation li {
 	border-left:1px solid #999;
 	float:right;
 	width:100px;
 	list-style:none;
-
 }
+
 #navigation a {
 	color:#555;
 	display:block;
@@ -128,6 +125,30 @@ span.first {
 	color:#777;
 }
 
+/* Search Bar - Navigation */
+#navigation .search-container {
+  float: left;
+}
+#navigation input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+#navigation .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+#navigation .search-container button:hover {
+  background: #ccc;
+}
+
 /* content */
 #content {
 	height:auto;
@@ -138,7 +159,6 @@ span.first {
 
 	z-index: 2;
 	position: relative;
-
 	border-left: groove;
 	border-right: groove;
 	border-width: 3px;
@@ -158,18 +178,15 @@ table, h2, legend {
 	color: black;
 }
 
+/* slideshow - content  */
 #content .mySlides {display: none;}
 #content img {vertical-align: middle;}
-
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
   position: relative;
   margin: auto;
 }
-
-#content .mySlides {display: none;}
-#content img {vertical-align: middle;}
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
@@ -177,17 +194,14 @@ table, h2, legend {
   animation-name: fade;
   animation-duration: 1.5s;
 }
-
 @-webkit-keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
 }
-
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
 }
-
 
 
 /* footer */
