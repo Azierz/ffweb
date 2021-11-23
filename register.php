@@ -99,12 +99,7 @@ include ('includes/header2.html');
 
 // } // End of the main Submit conditional.
 ?>
-<<<<<<< HEAD
 <h1>Register</h1>
-<h2>Test</h2>
-=======
-<h1>Registersss</h1>
->>>>>>> 6c6c274e50e2330f93194513117d8a480eb621cd
 <form action="register.php" method="post">
 	<p>Full Name: <input type="text" name="name" size="15" maxlength="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>" /></p>
 	<p>Password: <input type="password" name="pass1" size="10" maxlength="20" value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>"  /></p>
