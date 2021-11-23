@@ -2,6 +2,7 @@
 // This script performs an INSERT query to add a record to the users table.
 
 $page_title = 'Register';
+$page_text = 'Registration Form';
 include ('includes/header2.html');
 
 // Check for form submission:

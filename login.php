@@ -1,42 +1,112 @@
-<!DOCTYPE html>
-<html>
-<header> 
-<img src = "includes/fff.jpg">
-<title> Fruity Fruit Website </title>
+<?php
 
-<style>
-		body {background-color:white; background-image:url("includes/pastel.png") ;}
-		h1{color: black; margin: 0px auto 0px;
-		font-size: 25px; font-weight: 800;
-		text-align: center;}
+$page_title = 'Login Form';
+$page_text = 'Login Form';
+include ('includes/header2.html');
+
+// if (!empty($_SESSION['user_id']) || !empty($_SESSION['admin_id'])) {
+// 	echo '
+// 		<script>
+// 		window.alert("\nALREADY LOGGED IN!");
+// 		setTimeout(function(){location.href="profile.php"},0);
+// 		</script>';
+// }
+
+
+// // Run after submit form
+// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+// 	// Make the connection to the database
+// 	require ('mysqli_connect.php');
+
+// 	$errors = array(); // Initialize error array.
+
+// 	// Validate the email address:
+// 	if (empty($_POST['username'])) {
+// 		$errors[] = 'You forgot to enter your username.';
+// 	} else {
+// 		$un = mysqli_real_escape_string($dbc, trim($_POST['username']));
+// 	}
+
+// 	// Validate the password:
+// 	if (empty($_POST['pass'])) {
+// 		$errors[] = 'You forgot to enter your password.';
+// 	} else {
+// 		$p = mysqli_real_escape_string($dbc, trim($_POST['pass']));
+// 	}
+
+// 	if (empty($errors)) { // If everything's OK.
+
+// 		// Query for admin
+// 		$q = "SELECT admin_id, username FROM admin WHERE username='$un' AND password=SHA1('$p')";		
+// 		$r = @mysqli_query ($dbc, $q); // Run the query.
+
+// 		// Query for user
+// 		$q1 = "SELECT user_id, username, profile_pic FROM users WHERE username='$un' AND password=SHA1('$p')";		
+// 		$r1 = @mysqli_query ($dbc, $q1); // Run the query.
 		
-		form {color:black;margin: 100px auto; width: 300px;
-		padding: 30px 25px; background: white;}
-</style>
+// 		// Check the result:
+// 		if (mysqli_num_rows($r) == 1) {
 
-<body>
+// 			// Fetch the record:
+// 			$row = mysqli_fetch_array($r, MYSQLI_ASSOC);
 
+// 			// Set the session data:
+// 			session_start();
+// 			$_SESSION['admin_id'] = $row['admin_id'];
+// 			$_SESSION['username'] = $un;
+			
+// 			// Redirect user
+// 			header("Location:profile.php");
+			
+// 		} elseif (mysqli_num_rows($r1) == 1) {
 
-<form name="LoginForm" action="HDHloginVerify.php" method="post">
-	<h1>LOGIN</h1>
-	<br>
-	<center><br>
-	Username 
-	<input type="text" name="userName" maxlength="10" size="11" required>
-	<br><br>
-	Password 
-	<input type="password" name="userPwd" maxlength="10" size="11" required>
-	<br><br>
-	
-	
-	<br><br>
-	<input type="reset" value="Cancel">
-	<input type="submit" value="Login">
-	</center>
+// 			// Fetch the record:
+// 			$row = mysqli_fetch_array($r1, MYSQLI_ASSOC);
 
+// 			// Set the session data:
+// 			session_start();
+// 			$_SESSION['user_id'] = $row['user_id'];
+// 			$_SESSION['username'] = $un;
+// 			$_SESSION['profile_pic'] = $row['profile_pic'];
+			
+// 			// Redirect user
+// 			header("Location:profile.php");
+
+// 		} else { // Not a match!
+// 			$errors[] = 'The username and password entered do not match those on file.';
+// 		}
+// 	} // End of empty($errors) IF.
+
+// 	mysqli_close($dbc); // Close the database connection.
+
+// 	if ($errors) { // Report the errors.
+// 		echo '<h1>Error!</h1>
+// 		<div id ="errors">The following error(s) occurred:<br />';
+// 		foreach ($errors as $msg) { // Print each error.
+// 			echo " - $msg<br/>";
+// 		}
+// 		echo '</div>
+// 		<div id = "errors">Please try again.</div>'; // Close div "errors"
+// 	}
+
+// } // End of the main submit conditional.
+
+// Display the form:?>
+<h1>LOGIN FORM</h1>	
+<form action="login.php" method="post">
+	<table style="font-size: 100%">
+		<tr>
+			<td><p>Username</p></td>
+			<td><p><input type="text" name="username" size="20"/></p></td>
+		</tr>
+		
+		<tr>
+			<td><p>Password</p></td>
+			<td><p><input type="password" name="pass" size="20"/></p></td>
+		</tr>
+	</table>
+	<p align="right"><input type="submit" name="submit" value="Login" /></p>
+	<p align="right"><input type="submit" name="submit" value="Register" /></p>
 </form>
-
-
-</header>
-
-</html>
+ 
+<?php include ('includes/footer.html'); ?>
