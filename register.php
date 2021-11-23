@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		require ('includes/constants.php'); // Connect to the db.
 
 		// Make the query:
-		$q = "INSERT INTO user VALUES (0, '$n', SHA1('$p'), '$pn', '$ad', '$e', NOW() )";
+		$q = "INSERT INTO customer VALUES (0, '$n', SHA1('$p'), '$pn', '$ad', '$e', '')";
 		$r = mysqli_query ($dbc, $q); // Run the query.
 		if ($r) { // If it ran OK.
 
