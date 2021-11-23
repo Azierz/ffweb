@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <header> 
-<img src = "include/fff.jpg">
+<img src = "includes/fff.jpg">
 <title> Fruity Fruit Website </title>
 
 <style>
-		body {background-color:white; background-image:url("include/pastel.png") ;}
+		body {background-color:white; background-image:url("includes/pastel.png") ;}
 		h1{color: black; margin: 0px auto 0px;
 		font-size: 25px; font-weight: 800;
 		text-align: center;}
