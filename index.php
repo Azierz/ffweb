@@ -8,21 +8,21 @@ include ('includes/header2.php');
 
 
 	<div class="mySlides fade">
-	  <div class="numbertext">1 / 3</div>
-	  <img src="includes/jediknight.jpeg" style="width:100%">
-	  <div class="text">Caption Text</div>
+	  <!-- <div class="numbertext">1 / 3</div> -->
+	  <img src="includes/dragon.jfif" style="width:100%">
+	  <!-- <div class="text">Caption Text</div> -->
 	</div>
 
 	<div class="mySlides fade">
-	  <div class="numbertext">2 / 3</div>
-	  <img src="includes/judy.png" style="width:100%">
-	  <div class="text">Caption Two</div>
+	  <!-- <div class="numbertext">2 / 3</div> -->
+	  <img src="includes/orange.jpg" style="width:100%">
+	  <!-- <div class="text">Caption Two</div> -->
 	</div>
 
 	<div class="mySlides fade">
-	  <div class="numbertext">3 / 3</div>
-	  <img src="includes/kirito.jpg" style="width:100%">
-	  <div class="text">Caption Three</div>
+	  <!-- <div class="numbertext">3 / 3</div> -->
+	  <img src="includes/trofruits.jpg" style="width:100%">
+	  <!-- <div class="text">Caption Three</div> -->
 	</div>
 
 <br>
@@ -51,7 +51,7 @@ function showSlides() {
   }
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
+  setTimeout(showSlides, 3000); // Change image every 3 seconds
 }
 </script>
 <?php
