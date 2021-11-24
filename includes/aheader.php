@@ -12,5 +12,16 @@
 		<h1>Fruity Fruit </h1>
 		<h2><?php echo $page_text; ?> </h2>
 
+		</div>
+			<div id="navigation">
+				<ul>
+				<?php // Create a login/logout link:
+		if (isset($_SESSION['admin_id'])) {
+			echo '<li><a href="logout.php">Sign Out</a></li>';
+		} else {
+			echo '';
+		}
+		?>
+				</ul>
 	</div>
 	<div id="content">

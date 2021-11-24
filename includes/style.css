@@ -206,7 +206,7 @@ span.first {
   position: relative;
   margin: auto;
 }
-/* Fading animation */
+/* Fading animation - slideshow */
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
@@ -221,7 +221,33 @@ span.first {
   from {opacity: .4}
   to {opacity: 1}
 }
-
+/* center text on img */
+#content .centered {
+  position: absolute;
+	text-align: center;
+	font-size: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+	text-shadow: 2px 2px #FCFC00;
+}
+#content .centered .btn {
+  position: relative;
+  top: 0.5em;
+  left: 3.5em;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 20px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+#content .centered .btn:hover {
+  background-color: #FCFC00;
+}
 
 /* footer */
 #footer {

@@ -1,22 +1,13 @@
 <?php
-$page_title = 'Welcome to Our Site!';
-$page_text = 'Home Page';
-include ('includes/header2.php');
+$page_title = 'Welcome back!';
+$page_text = 'Admin Home Page';
+include ('includes/aheader.php');
 ?>
 
-<h1>Hi! Welcome to Fruity Fruit Website!</h1>
+<h1>Welcome back, admin !</h1>
 
-	<div class="mySlides fade">
-		<img src="includes/images/dragon.jfif" style="width:100%">
-	</div>
 
-	<div class="mySlides fade">
-		<img src="includes/images/orange.jpg" style="width:100%">
-	</div>
-
-	<div class="mySlides fade">
-		<img src="includes/images/trofruits.jpg" style="width:100%">
-	</div>
+	<img src="includes/images/pastel.png" style="width:100%">
 	<div class="centered"><h2>Premium Farm Fresh fruits
 		<br>to your doorstep.</h2>
 		<br><button class="btn"><a href="menu.php">Shop Now</a></button>

@@ -4,11 +4,11 @@ $page_title = 'Admin Login Form';
 $page_text = 'Admin Login Form';
 include ('includes/aheader.php');
 
-if (!empty($_SESSION['user_id']) || !empty($_SESSION['admin_id'])) {
+if (!empty($_SESSION['admin_id'])) {
 	echo '
 		<script>
 		window.alert("\nALREADY LOGGED IN!");
-		setTimeout(function(){location.href="profile.php"},0);
+		setTimeout(function(){location.href="indexadmin.php"},0);
 		</script>';
 }
 
@@ -49,10 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// Set the session data:
 			session_start();
 			$_SESSION['admin_id'] = $row['admin_id'];
-			$_SESSION['username'] = $un;
+			$_SESSION['email'] = $em;
 
 			// Redirect user
-			header("Location:profile.php");
+			header("Location:indexadmin.php");
 
 		} else { // Not a match!
 			$errors[] = 'The email and password entered do not match those on file.';
