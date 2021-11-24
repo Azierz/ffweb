@@ -30,14 +30,14 @@ if (isset($_SESSION['CustID'])) {
 	<li><a href="logout.php">Sign Out</a></li>
 	<li><a href="aboutus.php">About Us</a></li>
 	<li><a href="menu.php">Menu</a></li>
-	<li><a href="/">Home</a></li>';
+	<li><a href="index.php">Home</a></li>';
 } else {
 	echo '
 	<a class="cart" href="#"><i class="fa fa-shopping-cart"></i></a>
 	<li><a href="login.php">Sign In</a></li>
 	<li><a href="aboutus.php">About Us</a></li>
 	<li><a href="menu.php">Menu</a></li>
-	<li><a href="/">Home</a></li>
+	<li><a href="index.php">Home</a></li>
 	';
 }
 ?>
