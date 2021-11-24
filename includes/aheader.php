@@ -20,7 +20,7 @@
 		if (isset($_SESSION['admin_id'])) {
 			echo '<li><a href="logout.php">Sign Out</a></li>';
 		} else {
-			echo '<li><a href="logout.php">Sign Out</a></li>';
+			echo '<li><a href="loginadmin.php">Sign In</a></li>';
 		}
 		?>
 				</ul>
