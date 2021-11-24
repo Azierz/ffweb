@@ -27,9 +27,9 @@ include ('includes/aheader.php');
 		</table>
 	</div>
 	<div class="btn-group">
-			<button class="btn"><a href="#">ADD</a></button>
-			<button class="btn"><a href="#">EDIT</a></button>
-			<button class="btn"><a href="#">DELETE</a></button>
+			<button><a href="#">ADD</a></button>
+			<button><a href="#">EDIT</a></button>
+			<button><a href="#">DELETE</a></button>
 	</div>
 
 
