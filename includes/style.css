@@ -208,6 +208,59 @@ span.first {
 	text-align: center;
 }
 
+#content .menu .btn {
+	position: relative;
+	top: 1.2em;
+	left: 2.5em;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	background-color: #FFC847;
+	font-size: 16px;
+	padding: 12px 24px;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+#content .menu .btn:hover {
+  background-color: #FCFC00;
+}
+.center .btn-group .btn {
+	position: relative;
+	top: 1.2em;
+	left: 2.5em;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	background-color: #FFC847;
+	font-size: 16px;
+	padding: 12px 24px;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.btn-group button {
+  background-color: #FFC847;
+  border: 1px solid black;
+  padding: 10px 24px;
+  cursor: pointer;
+  float: left;
+	position: relative;
+	top: 0.5em;
+	left: 28em;
+}
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #FCFC00;
+}
+
 /* slideshow - content  */
 #content .mySlides {display: none;}
 #content img {vertical-align: middle;}

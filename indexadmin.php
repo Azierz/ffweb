@@ -4,31 +4,36 @@ $page_text = 'Admin Home Page';
 include ('includes/aheader.php');
 ?>
 
-<h1>Welcome back, admin !</h1>
+<h1>Category</h1>
 
 
-	<img src="includes/images/pastel.png" style="width:100%">
-	<div class="centered"><h2>Premium Farm Fresh fruits
-		<br>to your doorstep.</h2>
-		<br><button class="btn"><a href="menu.php">Shop Now</a></button>
+	<!-- <img src="includes/images/pastel.png" style="width:100%"> -->
+	<div class="menu">
+		<table>
+		  <tr>
+		    <tH>Product Maintenance</tH>
+		    <tH>Manage Customer</tH>
+		    <tH>Manage Order</tH>
+				<tH>Admin Maintenance</tH>
+		    <tH>Check Review</tH>
+		  </tr>
+			<tr>
+				<td><button class="btn"><a href="#">GO</a></button></td>
+				<td><button class="btn"><a href="#">GO</a></button></td>
+				<td><button class="btn"><a href="#">GO</a></button></td>
+				<td><button class="btn"><a href="#">GO</a></button></td>
+				<td><button class="btn"><a href="#">GO</a></button></td>
+			</tr>
+		</table>
+	</div>
+	<div class="btn-group">
+			<button class="btn"><a href="#">ADD</a></button>
+			<button class="btn"><a href="#">EDIT</a></button>
+			<button class="btn"><a href="#">DELETE</a></button>
 	</div>
 
-<script>
-var slideIndex = 0;
-showSlides();
 
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 3000); // Change image every 3 seconds
-}
-</script>
+
 <?php
 include ('includes/footer.html');
 ?>
