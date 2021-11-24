@@ -26,19 +26,25 @@ include ('includes/header2.php');
 		while ($data = mysqli_fetch_array($r)) {
 			echo "
 			<tr>
-				<td>image</td>
+				<td style=\"border-bottom: 0px\">";
+				if (!isset($data['Image'])) {
+					echo "<img src=\"includes/images/image_na.png\"";
+				} else {
+					echo "<img src=\"includes/images/".$data['Image']."\"";
+				};
+				echo "</td>
 				<td rowspan='2'>RM ".$data['Price']."</td>
 				<td rowspan='2'>".$data['Quantity']."</td>
 				<td rowspan='2'>";
 				if ($data['Quantity'] > 0) {
-					echo "<a href=#>See Detail</a>";
+					echo '<a href="menudetails.php">See Detail</a>';
 				} else {
 					echo "Out of Stock";
 				};
 			echo "</td>
 			</tr>
 			<tr>
-				<td>".$data['Name']."</td>
+				<td style=\"border-top: 0px\">".$data['Name']."</td>
 			</tr>
 			";
 		}}
