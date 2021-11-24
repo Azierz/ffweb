@@ -3,7 +3,7 @@
 <head>
 	<title><?php echo $page_title; ?></title>
 	<link rel="stylesheet" href="includes/style.css" type="text/css" media="screen"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 </head>
 <body>
@@ -16,6 +16,7 @@
 	</div>
 	<div id="navigation">
 		<ul>
+			<!-- search bar -->
 			<div class="search-container">
 		    <form action="/action_page.php">
 		      <input type="text" placeholder="Search.." name="search" size="25">

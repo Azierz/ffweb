@@ -10,9 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$errors = array(); // Initialize an error array.
 
-	// Check for a first name:
+	// Check for a name:
 	if (empty($_POST['name'])) {
-		$errors[] = 'You forgot to enter your first name.';
+		$errors[] = 'You forgot to enter your name.';
 	} else {
 		$n = trim($_POST['name']);
 	}

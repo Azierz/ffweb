@@ -12,7 +12,6 @@ if (!empty($_SESSION['CustID'])){
 		</script>';
 }
 
-
 // Run after submit form
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// Make the connection to the database
