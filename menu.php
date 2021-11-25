@@ -9,8 +9,8 @@ include ('includes/header2.php');
 <div class="menu">
 	<table border="1">
 		<tr>
-			<th>Fruit(s):</th>
-			<th>Price:</th>
+			<th>Fruit(s)</th>
+			<th>Price</th>
 			<th>Quantity</th>
 			<th>Add To Cart</th>
 		</tr>
@@ -37,7 +37,7 @@ include ('includes/header2.php');
 				<td rowspan='2'>".$data['Quantity']."</td>
 				<td rowspan='2'>";
 				if ($data['Quantity'] > 0) {
-					echo '<a href="menudetails.php">See Detail</a>';
+					echo '<a href="menudetails.php">More Details</a>';
 				} else {
 					echo "Out of Stock";
 				};

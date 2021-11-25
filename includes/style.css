@@ -20,16 +20,9 @@ body {
 	background:#FDFDC8;
 	color:#555;
 	font:0.8em Arial, Helvetica, "bitstream vera sans", sans-serif;
-
-	/*background image*/
-	background-image: url(retro.png);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: 100%;
 }
 
-/* header */
+/* HEADER START */
 #header {
 	border-bottom:1px solid #999;
 	height:80px;
@@ -41,7 +34,6 @@ body {
 	border-top: 3px groove;
 	border-left: 3px groove;
 	border-right: 3px groove;
-
 }
 #header h1 {
 	color:#000000;
@@ -65,29 +57,16 @@ body {
 	right: 16px;
 	text-shadow: 2px 2px #FCFC00;
 }
-
 #header img{
 	width: 100%;
 	height: auto;
 	z-index: -1;
 	background-repeat: repeat-y;
 }
+/* HEADER END */
 
-/* reg table */
-#reg tr td {
-	padding: 10px;
-}
 
-.cart {
-	padding-top: 0.3rem;
-	padding-bottom: 0.3rem;
-	margin-right: 0.6rem;
-	margin-left: 0.3rem;
-	font-size: 2rem;
-	float: right;
-}
-
-/* navigation */
+/* NAVIGATION START */
 #navigation {
 	background-color: #FDFDAD;
 	border-right:1px solid #999;
@@ -101,14 +80,12 @@ body {
 	border-left: 3px groove;
 	border-right: 3px groove;
 }
-
 #navigation li {
 	border-left:1px solid #999;
 	float:right;
 	width:100px;
 	list-style:none;
 }
-
 #navigation a {
 	color:#555;
 	display:block;
@@ -123,6 +100,16 @@ body {
 #navigation .active {
 	background:#e3e3e3;
 	color:#777;
+}
+
+/* Cart - Navigation */
+.cart {
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+	margin-right: 0.6rem;
+	margin-left: 0.3rem;
+	font-size: 2rem;
+	float: right;
 }
 
 /* Search Bar - Navigation */
@@ -148,8 +135,9 @@ body {
 #navigation .search-container button:hover {
   background: #ccc;
 }
+/* NAVIGATION END */
 
-/* content */
+/* CONTENT START */
 #content {
 	height:auto;
 	margin:0 auto;
@@ -174,32 +162,36 @@ body {
 	color: black;
 }
 
+/* reg table */
+#reg tr td {
+	padding: 10px;
+}
+
+/* menu,cart,indexadmin table - START */
 .menu table{
 	margin: 1% 15%;
 	width: 70%;
 	table-layout: fixed;
 }
-
 #content .menu table img{
 	width: 100%;
 	height: auto;
 }
-
 #content .menu tr th{
 	padding: 10px;
 	border: 1px solid black;
 	width: auto;
 	text-align: center;
 	}
-
 #content .menu tr td{
 	padding: 10px;
 	border: 1px solid black;
 	width: auto;
 	text-align: center;
 }
+/* menu,cart,indexadmin table - END */
 
-/* use in indexadmin.php */
+/* use in indexadmin.php - START */
 #content .menu .btn {
 	position: relative;
 	top: 1.2em;
@@ -252,7 +244,9 @@ body {
 .btn-group button:hover {
   background-color: #FCFC00;
 }
+/* use in indexadmin.php - END */
 
+/* use in index.php - START */
 /* slideshow - content  */
 #content .mySlides {display: none;}
 #content img {vertical-align: middle;}
@@ -304,8 +298,46 @@ body {
 #content .centered .btn:hover {
   background-color: #FCFC00;
 }
+/* use in index.php - END */
 
-/* footer */
+/* menu details table - START */
+* {
+  box-sizing: border-box;
+}
+.menudetails .row {
+  margin-left:-5px;
+  margin-right:-5px;
+}
+.menudetails .column {
+  float: left;
+  width: 30%;
+  padding: 5px;
+}
+/* Clearfix (clear floats) */
+.menudetails .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.menudetails table {
+	border: 1px solid black;
+  width: 100%;
+	margin: 1% 65%;
+	table-layout: fixed;
+}
+.menudetails table img{
+	width: 100%;
+	height: auto;
+}
+.menudetails th, .menudetails td {
+  text-align: center;
+  padding: 16px;
+	border: 1px solid black;
+}
+/* menu details table - END */
+/* CONTENT END */
+
+/* FOOTER START */
 #footer {
 	border-top:1px solid black;
 	height:50px;
@@ -322,8 +354,8 @@ body {
 	border-bottom: 3px groove;
 	border-left: 3px groove;
 	border-right: 3px groove;
-
 }
+/* FOOTER END */
 
 /* Added by Larry Ullman: */
 .ad {

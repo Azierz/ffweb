@@ -27,14 +27,14 @@
 		<?php // Create a login/logout link:
 if (isset($_SESSION['CustID'])) {
 	echo '
-	<a class="cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+	<a class="cart" href="cart.php"><i class="fa fa-shopping-cart"></i></a>
 	<li><a href="logout.php">Sign Out</a></li>
 	<li><a href="aboutus.php">About Us</a></li>
 	<li><a href="menu.php">Menu</a></li>
 	<li><a href="index.php">Home</a></li>';
 } else {
 	echo '
-	<a class="cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+	<a class="cart" href="cart.php"><i class="fa fa-shopping-cart"></i></a>
 	<li><a href="login.php">Sign In</a></li>
 	<li><a href="aboutus.php">About Us</a></li>
 	<li><a href="menu.php">Menu</a></li>
@@ -43,6 +43,5 @@ if (isset($_SESSION['CustID'])) {
 }
 ?>
 		</ul>
-
 	</div>
 	<div id="content">
