@@ -53,6 +53,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		require ('includes/constants.php'); // Connect to the db.
 
+		//  Test for unique email address
+
+		$q1 = "SELECT email FROM customer WHERE email='$e'";
+		$r1 = @mysqli_query($dbc, $q1);
+
+		if (mysqli_num_rows($r1) > 0) { // Check for unique email address
+			$errors[] = "Email Address already exists.";
+		} else { // Register the user in the database...
+
 		// Make the query:
 		$q = "INSERT INTO customer VALUES (0, '$n', SHA1('$p'), '$pn', '$ad', '$e', '')";
 		$r = mysqli_query ($dbc, $q); // Run the query.
@@ -79,8 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		include ('includes/footer.html');
 		exit();
 
-	} else { // Report the errors.
-
+		} // End of register user into db
+	}  // End of if (empty($errors)) IF.
+		if ($errors) { // Report the errors.
 		echo '<h1>Error!</h1>
 		<div id = "errors">The following error(s) occurred:<br />';
 		foreach ($errors as $msg) { // Print each error.
@@ -89,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		echo '</div>
 		<div id = "errors">Please try again.</div> <p><br /></p>';
 
-	} // End of if (empty($errors)) IF.
+	}
 
 } // End of the main Submit conditional.
 ?>
