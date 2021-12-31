@@ -2,6 +2,14 @@
 $page_title = 'Cart';
 $page_text = 'Cart';
 include ('includes/header2.php');
+
+if (empty($_SESSION['CustID'])) {
+	echo '
+		<script>
+		window.alert("\nPLEASE LOGIN FIRST!");
+		setTimeout(function(){location.href="login.php"},0);
+		</script>';
+}
 ?>
 
 <h1>Fruity Fruit Cart</h1>

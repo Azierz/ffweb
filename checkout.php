@@ -2,6 +2,14 @@
 $page_title = 'Checkout';
 $page_text = 'Checkout';
 include ('includes/header2.php');
+
+if (empty($_SESSION['CustID'])) {
+	echo '
+		<script>
+		window.alert("\nPLEASE LOGIN FIRST!");
+		setTimeout(function(){location.href="login.php"},0);
+		</script>';
+}
 ?>
 
 <h1>Fruity Fruit Checkout</h1>

@@ -16,12 +16,12 @@
 			<div id="navigation">
 
 				<?php // Create a login/logout link:
-		if (isset($_SESSION['admin_id'])) {
-			echo '<h1 style="float: left;">Welcome back, admin !</h1>
+		if (isset($_SESSION['AdminID'])) {
+			echo '<h1 style="float: left;">Welcome back, '. $_SESSION['AdminName'] .' !</h1>
 						<ul>
 							<li><a href="logout.php">Sign Out</a></li>';
 		} else {
-			echo '<li><a href="loginadmin.php">Sign In</a></li>';
+			echo '<li><a href="login.php">Sign In</a></li>';
 		}
 		?>
 				</ul>

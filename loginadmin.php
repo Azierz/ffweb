@@ -4,7 +4,7 @@ $page_title = 'Admin Login Form';
 $page_text = 'Admin Login Form';
 include ('includes/aheader.php');
 
-if (!empty($_SESSION['admin_id'])) {
+if (!empty($_SESSION['AdminID'])) {
 	echo '
 		<script>
 		window.alert("\nALREADY LOGGED IN!");

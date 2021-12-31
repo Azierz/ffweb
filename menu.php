@@ -2,6 +2,14 @@
 $page_title = 'Menu';
 $page_text = 'Menu';
 include ('includes/header2.php');
+
+if (empty($_SESSION['CustID'])) {
+	echo '
+		<script>
+		window.alert("\nPLEASE LOGIN FIRST!");
+		setTimeout(function(){location.href="login.php"},0);
+		</script>';
+}
 ?>
 
 <h1>Fruity Fruit Menu</h1>
@@ -16,12 +24,24 @@ include ('includes/header2.php');
 		</tr>
 		<?php
 		require ('includes/constants.php');
+		
+		if(!empty($_GET["search"])){
+			$search = $_GET["search"];
+		} else {
+			$search = 0;
+		}
+		
 
-		$q = "SELECT * FROM product";
-		$r = @mysqli_query ($dbc,$q);
+		if ($search != "0"){
+			$q = "SELECT * FROM product WHERE Name LIKE '%$search%'";
+			$r = @mysqli_query ($dbc,$q);
+		} else {
+			$q = "SELECT * FROM product";
+			$r = @mysqli_query ($dbc,$q);
+		}
 
 		if (!mysqli_num_rows($r) == 1) {
-			echo '<tr><td colspan="3">ALL PRODUCT OUT OF STOCK</td></tr>';
+			echo '<tr><td colspan="4">ALL PRODUCT OUT OF STOCK</td></tr>';
 		} else {
 		while ($data = mysqli_fetch_array($r)) {
 			echo "
@@ -37,7 +57,11 @@ include ('includes/header2.php');
 				<td rowspan='2'>".$data['Quantity']."</td>
 				<td rowspan='2'>";
 				if ($data['Quantity'] > 0) {
-					echo '<a href="menudetails.php">More Details</a>';
+					echo '
+					<form action="menudetails.php" method="GET">
+						<input type="text" name="ProductID" value="'.$data["ProductID"].'" hidden>
+						<input type="submit" name="submit" value="More Details" />
+					</form>';
 				} else {
 					echo "Out of Stock";
 				};

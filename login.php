@@ -1,10 +1,10 @@
 <?php
 
-$page_title = 'Login Form';
-$page_text = 'Login Form';
+$page_title = 'Sign In Form';
+$page_text = 'Sign In Form';
 include ('includes/header2.php');
 
-if (!empty($_SESSION['CustID'])){
+if (!empty($_SESSION['CustID']) || !empty($_SESSION['AdminID'])){
 	echo '
 		<script>
 		window.alert("\nALREADY LOGGED IN!");
@@ -35,21 +35,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	if (empty($errors)) { // If everything's OK.
 
-		// Query for user
-		$q = "SELECT CustID, CustName, Email FROM customer WHERE Email='$em' AND password=SHA1('$p')";
+		// Query for admin
+		$q = "SELECT * FROM admin WHERE Email='$em' AND password=SHA1('$p')";
 		$r = @mysqli_query ($dbc, $q); // Run the query.
 
+		// Query for user
+		$q1 = "SELECT * FROM customer WHERE Email='$em' AND password=SHA1('$p')";
+		$r1 = @mysqli_query ($dbc, $q1); // Run the query.
+
 		// Check the result:
-		if (mysqli_num_rows($r) == 1) {
+		if (mysqli_num_rows($r) == 1) { // FOR ADMIN
 
 			// Fetch the record:
 			$row = mysqli_fetch_array($r, MYSQLI_ASSOC);
 
 			// Set the session data:
 			session_start();
-			$_SESSION['CustID'] = $row['CustID'];
+			$_SESSION['AdminID'] = $row['AdminID'];
+			$_SESSION['AdminName'] = $row['AdminName'];
 			$_SESSION['Email'] = $em;
-			//$_SESSION['profile_pic'] = $row['profile_pic'];
+
+			// Redirect user
+			header("Location:indexadmin.php");
+
+		} elseif (mysqli_num_rows($r1) == 1) { // FOR USER
+			
+			// Fetch the record:
+			$row = mysqli_fetch_array($r1, MYSQLI_ASSOC);
+
+			// Set the session data:
+			session_start();
+			$_SESSION['CustID'] = $row['CustID'];
+			$_SESSION['CustName'] = $row['CustName'];
+			$_SESSION['Email'] = $em;
 
 			// Redirect user
 			header("Location:index.php");
@@ -74,20 +92,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } // End of the main submit conditional.
 
 // Display the form:?>
-<h1>LOGIN FORM</h1>
+<h1>Sign In</h1>
 <form action="login.php" method="post">
 	<table style="font-size: 100%">
 		<tr>
 			<td><p>E-Mail</p></td>
-			<td><p><input type="email" name="email" size="60"/></p></td>
+			<td><p><input type="email" name="email" size="40"/></p></td>
 		</tr>
-
 		<tr>
 			<td><p>Password</p></td>
-			<td><p><input type="password" name="pass" size="10"/></p></td>
+			<td><p><input type="password" name="pass" size="20"/></p></td>
 		</tr>
 	</table>
-	<p align="right"><input type="submit" name="submit" value="Login" /></p>
+	<p align="right"><input type="submit" name="submit" value="Sign In" /></p>
 </form>
 
 <form action="register.php" method="get">

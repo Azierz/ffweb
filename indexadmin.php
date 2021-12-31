@@ -2,6 +2,14 @@
 $page_title = 'Welcome back!';
 $page_text = 'Admin Home Page';
 include ('includes/aheader.php');
+
+if (empty($_SESSION['AdminID'])) {
+	echo '
+		<script>
+		window.alert("\nPLEASE LOGIN FIRST!");
+		setTimeout(function(){location.href="login.php"},0);
+		</script>';
+}
 ?>
 
 <h1>Category</h1>

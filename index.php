@@ -2,10 +2,13 @@
 $page_title = 'Welcome to Our Site!';
 $page_text = 'Home Page';
 include ('includes/header2.php');
+
+if (isset($_SESSION['CustID'])) {
+	echo '<h1>Hi ' . $_SESSION['CustName'] . '! Welcome back to Fruity Fruit Website!</h1>';
+} else {
+	echo '<h1>Hi! Welcome to Fruity Fruit Website!</h1>';
+}
 ?>
-
-<h1>Hi! Welcome to Fruity Fruit Website!</h1>
-
 	<div class="mySlides fade">
 		<img src="includes/images/dragon.jfif" style="width:100%">
 	</div>
@@ -19,7 +22,13 @@ include ('includes/header2.php');
 	</div>
 	<div class="centered"><h2>Premium Farm Fresh fruits
 		<br>to your doorstep.</h2>
-		<br><button class="btn"><a href="menu.php">Shop Now</a></button>
+		<?php
+		if (isset($_SESSION['CustID'])) {
+			echo '<br><button class="btn"><a href="menu.php">Shop Now</a></button>';
+		} else {
+			echo '<br><button class="btn"><a href="login.php">Sign In</a></button>';
+		}
+		?>
 	</div>
 
 <script>
