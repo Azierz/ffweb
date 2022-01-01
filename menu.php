@@ -28,17 +28,17 @@ if (empty($_SESSION['CustID'])) {
 		if(!empty($_GET["search"])){
 			$search = $_GET["search"];
 		} else {
-			$search = 0;
+			$search = "";
 		}
 		
 
-		if ($search != "0"){
-			$q = "SELECT * FROM product WHERE Name LIKE '%$search%'";
-			$r = @mysqli_query ($dbc,$q);
-		} else {
-			$q = "SELECT * FROM product";
-			$r = @mysqli_query ($dbc,$q);
-		}
+		// if ($search != "0"){
+		$q = "SELECT * FROM product WHERE Name LIKE '%$search%'";
+		$r = @mysqli_query ($dbc,$q);
+		// } else {
+		// 	$q = "SELECT * FROM product";
+		// 	$r = @mysqli_query ($dbc,$q);
+		// }
 
 		if (!mysqli_num_rows($r) == 1) {
 			echo '<tr><td colspan="4">ALL PRODUCT OUT OF STOCK</td></tr>';

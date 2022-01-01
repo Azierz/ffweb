@@ -14,7 +14,7 @@
 	<div id="navigation">
 		<ul>
 
-			<li><a href="menu.php">Back</a></li>;
+			<li><a href="menu.php">Back</a></li>
 
 		</ul>
 	</div>
