@@ -1,15 +1,7 @@
 <?php
-$page_title = 'Cart';
-$page_text = 'Cart';
+$page_title = 'Shopping Cart';
+$page_text = 'Shopping Cart';
 include ('includes/header2.php');
-
-if (empty($_SESSION['CustID'])) {
-	echo '
-		<script>
-		window.alert("\nPLEASE LOGIN FIRST!");
-		setTimeout(function(){location.href="login.php"},0);
-		</script>';
-}
 ?>
 
 <h1>Fruity Fruit Cart</h1>
@@ -25,32 +17,48 @@ if (empty($_SESSION['CustID'])) {
 				<?php
 				require ('includes/constants.php');
 
-				$q = "SELECT * FROM product";
-				$r = @mysqli_query ($dbc,$q);
+				if (empty($_SESSION['cartTEST'])) {
+					echo '
+						<script>
+						window.alert("\nShopping Cart Empty!");
+						setTimeout(function(){location.href="menu.php"},0);
+						</script>';
+				}
+				for($i=0; $i<count($_SESSION['cartTEST']); $i++) {
+					
+				
+				foreach($_SESSION['cartTEST'][$i] as $cart => $val) {
+					$testval = $val;
+					echo $testval;
+					
+					
 
-				if (!mysqli_num_rows($r) == 1) {
-					echo '<tr><td colspan="3">ALL PRODUCT OUT OF STOCK</td></tr>';
-				} else {
-				while ($data = mysqli_fetch_array($r)) {
-					echo "
-					<tr>
-						<td style=\"border-bottom: 0px\">";
-						if (!isset($data['Image'])) {
-							echo "<img src=\"includes/images/image_na.png\"";
-						} else {
-							echo "<img src=\"includes/images/".$data['Image']."\"";
-						};
-						echo "</td>
-						<td rowspan='2'>RM ".$data['Price']."</td>
-						<td rowspan='2'>TOTAL QUANTITY</td>
-						<td rowspan='2'><a href='menudetails.php'>TOTAL PRICE</a></td>
-					</tr>
-					<tr>
-						<td style=\"border-top: 0px\">".$data['Name']."</td>
-					</tr>
-					";
+					$q = "SELECT * FROM product WHERE ProductID='$testval'";
+					$r = @mysqli_query ($dbc,$q);
+
+					if (mysqli_num_rows($r) == 1) {
+						
+					while ($data = mysqli_fetch_array($r)) {
+						echo "
+						<tr>
+							<td style=\"border-bottom: 0px\">";
+							if (!isset($data['Image'])) {
+								echo "<img src=\"includes/images/image_na.png\"";
+							} else {
+								echo "<img src=\"includes/images/".$data['Image']."\"";
+							};
+							echo "</td>
+							<td rowspan='2'>RM ".$data['Price']."</td>
+							<td rowspan='2'>TOTAL QUANTITY</td>
+							<td rowspan='2'><a href='menudetails.php'>TOTAL PRICE</a></td>
+						</tr>
+						<tr>
+							<td style=\"border-top: 0px\">".$data['Name']."</td>
+						</tr>
+						";
+					}} 
 				}} ?>
-			</table>
+			 </table>
 			
 			<table>
 				<tr>

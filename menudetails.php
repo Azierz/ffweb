@@ -4,8 +4,7 @@ $page_text = 'Menu Details';
 include ('includes/header.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	session_start();
-	$_SESSION['cart'] = array();
+	
 	$CartID = $_POST['cart'];
 
 	require ('includes/constants.php');
@@ -19,17 +18,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		setTimeout(function(){location.href="menu.php"},0);
 		</script>';
 	} else {
-		$CartName = $data['Name'];
-		$CartImage = $data['Image'];
-		$CartPrice = $data['Price'];
-		$CartQuantity = 1;
+		session_start();
+		$skip = 0;
+		if(!empty($_SESSION['cartTEST'])) {
+			for($i=0; $i<count($_SESSION['cartTEST']); $i++) {
+				if($_SESSION['cartTEST'][$i]['ID'] == $CartID) {
+					$_SESSION['cartTEST'][$i]['Quantity'] += 1;
+					$skip = 1;
+				}
+				if($skip == 0) {
+					// $_SESSION['cartTEST'][]['ID'] = $CartID;
+					// $_SESSION['cartTEST'][]['Quantity'] = 1;
+				}
+			}
+		} else {
+			// $_SESSION['cartTEST'][]['ID'] = $CartID;
+			// $_SESSION['cartTEST'][]['Quantity'] = 1;
+		}
 
-		array_push($_SESSION['cart'],$CartImage,$CartName,$CartPrice,$CartQuantity);
 		echo '<script>
 		window.alert("\nSUCCESS!\nPRODUCT ADDED TO CART.");
 		setTimeout(function(){location.href="menu.php"},0);
 		</script>';
-	}}
+	}
+}
 ?>
 
 <h1>Fruity Fruit Menu Details</h1>
