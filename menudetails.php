@@ -1,7 +1,10 @@
 <?php
+session_start();
 $page_title = 'Menu Details';
 $page_text = 'Menu Details';
 include ('includes/header.php');
+
+//print_r($_SESSION['cartTEST']);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
@@ -18,23 +21,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		setTimeout(function(){location.href="menu.php"},0);
 		</script>';
 	} else {
-		session_start();
-		$skip = 0;
-		if(!empty($_SESSION['cartTEST'])) {
-			for($i=0; $i<count($_SESSION['cartTEST']); $i++) {
-				if($_SESSION['cartTEST'][$i]['ID'] == $CartID) {
-					$_SESSION['cartTEST'][$i]['Quantity'] += 1;
-					$skip = 1;
-				}
-				if($skip == 0) {
-					// $_SESSION['cartTEST'][]['ID'] = $CartID;
-					// $_SESSION['cartTEST'][]['Quantity'] = 1;
-				}
-			}
-		} else {
-			// $_SESSION['cartTEST'][]['ID'] = $CartID;
-			// $_SESSION['cartTEST'][]['Quantity'] = 1;
-		}
+		// session_start();
+		// $skip = 0;
+		// if(!empty($_SESSION['cartTEST'])) {
+		// 	for($i=0; $i<count($_SESSION['cartTEST']); $i++) {
+		// 		if($_SESSION['cartTEST'][$i]['ID'] == $CartID) {
+		// 			$_SESSION['cartTEST'][$i]['Quantity'] += 1;
+		// 			$skip = 1;
+		// 		}
+		// 		if($skip == 0) {
+		// 			$_SESSION['cartTEST'][]['ID'] = $CartID;
+		// 			$_SESSION['cartTEST'][]['Quantity'] = 1;
+		// 		}
+		// 	}
+		// } else {
+		// 	$_SESSION['cartTEST'][]['ID'] = $CartID;
+		// 	$_SESSION['cartTEST'][]['Quantity'] = 1;
+		// }
+
+		$i = $_POST["cart"];
+		$qty = $_SESSION["qty"][$i] + 1;
+		$_SESSION["amounts"][$i] = $amounts[$i] * $qty;
+		$_SESSION["cart"][$i] = $i;
+		$_SESSION["qty"][$i] = $qty;
 
 		echo '<script>
 		window.alert("\nSUCCESS!\nPRODUCT ADDED TO CART.");
