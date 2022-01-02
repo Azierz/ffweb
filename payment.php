@@ -60,8 +60,8 @@ include ('includes/header.php');
 	<div class="col-50">
 		<div class="container">
 		<h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i></span></h4>
+		
 		<?php
-		session_start();
 		require ('includes/constants.php');
 		$TotalPayment = 0;
 		foreach($_SESSION['cart'] as $cart => $val) {

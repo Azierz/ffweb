@@ -1,5 +1,4 @@
 <?php
-session_start();
 $page_title = 'Menu Details';
 $page_text = 'Menu Details';
 include ('includes/header.php');
