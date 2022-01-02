@@ -1,8 +1,8 @@
 <html>
 <head>
 	<title><?php echo $page_title; ?></title>
-	<link rel="stylesheet" href="includes/style.css" type="text/css" media="screen"
-/>
+	<link rel="stylesheet" href="includes/style.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 </head>
 <body>
@@ -13,8 +13,13 @@
 	</div>
 	<div id="navigation">
 		<ul>
+		<?php
 
-			<li><a href="menu.php">Back</a></li>
+		if (isset($_SERVER["HTTP_REFERER"])) {
+			echo '<li><a href="'. $_SERVER["HTTP_REFERER"] .'">Back</a></li>';
+		}
+
+		?>
 
 		</ul>
 	</div>

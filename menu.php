@@ -56,15 +56,30 @@ if (empty($_SESSION['CustID'])) {
 				<td rowspan='2'>RM ".$data['Price']."</td>
 				<td rowspan='2'>".$data['Quantity']."</td>
 				<td rowspan='2'>";
-				if ($data['Quantity'] > 0) {
-					echo '
-					<form action="menudetails.php" method="GET">
-						<input type="text" name="ProductID" value="'.$data["ProductID"].'" hidden>
-						<input type="submit" name="submit" value="More Details" />
-					</form>';
+				$dt = $data["ProductID"];
+
+				if (isset($_SESSION["qty"][$dt])) { //check cart for specific product
+					if ($data['Quantity'] > 0 && $_SESSION["qty"][$dt] < $data['Quantity']) {
+						echo '
+						<form action="menudetails.php" method="GET">
+							<input type="text" name="ProductID" value="'.$data["ProductID"].'" hidden>
+							<input type="submit" name="submit" value="More Details" />
+						</form>';
+					} else {
+						echo "Out of Stock";
+					};
 				} else {
-					echo "Out of Stock";
-				};
+					if ($data['Quantity'] > 0) {
+						echo '
+						<form action="menudetails.php" method="GET">
+							<input type="text" name="ProductID" value="'.$data["ProductID"].'" hidden>
+							<input type="submit" name="submit" value="More Details" />
+						</form>';
+					} else {
+						echo "Out of Stock";
+					};
+				}
+				
 			echo "</td>
 			</tr>
 			<tr>

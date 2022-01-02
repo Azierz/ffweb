@@ -3,7 +3,18 @@ $page_title = 'Shopping Cart';
 $page_text = 'Shopping Cart';
 include ('includes/header2.php');
 
-// print_r($_SESSION);		//TEST SES OUTPUT
+//print_r($_SESSION);		//TEST SES OUTPUT
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	
+	if($_POST['Pmethod'] == 'Online') {
+		$_SESSION['method'] = 1;
+		header("Location:payment.php");
+	} else {
+		$_SESSION['method'] = 0;
+		header("Location:checkout.php");
+	}
+}
 
 ?>
 
@@ -29,9 +40,9 @@ include ('includes/header2.php');
 				}
 				// for($i=0; $i<count($_SESSION['cart']); $i++) {
 					
-				
+				$TotalPayment = 0;
 				foreach($_SESSION['cart'] as $cart => $val) {
-
+					
 					$ProdID = $val;
 					$Qty = $_SESSION['qty'][$val];
 					//echo $testval;
@@ -45,6 +56,7 @@ include ('includes/header2.php');
 						
 						$Price = $data['Price'];
 						$TotalPrice = number_format((double)$Qty*$Price, 2 ,'.', ',');
+						$TotalPayment = number_format((double)$TotalPayment+$TotalPrice, 2 ,'.', ',');
 
 						echo "
 						<tr>
@@ -74,33 +86,35 @@ include ('includes/header2.php');
 					<th style="text-align: left; border: 0px">SHIPPING ADDRESS</th>
 				</tr>
 				<tr>
-					<td style="text-align: left">CUSTOMER ADDRESS</td>
+					<td style="text-align: left"><?php echo $_SESSION['Address']; ?></td>
 				</tr>
 			</table>
+			<form action="cart.php" method="POST">
 			<table>
 				<tr>
 					<th style="text-align: left; border: 0px">TOTAL PAYMENT</th>
 					<th style="text-align: left; border: 0px">PAYMENT METHOD</th>
 				</tr>
 				<tr>
-					<td style="text-align: left">RMXX.XX</td>
+					<td style="text-align: left">RM<?php echo $TotalPayment; ?></td>
 					<td style="text-align: left"><label><?php pmethod(); ?></td>
 				</tr>
 			</table>
 
 			<table>
 				<tr>
-					<td style="text-align: right; border: 0px;"><button class="btn"><a href="checkout.php">CHECKOUT</a></button></td>
+					<td style="text-align: right; border: 0px;"><button type="submit" value="submit" class="btn"><a>Proceed to Order</a></button></td>
 				</tr>
 			</table>
+			</form>
 		</div>
 
 		<?php
 		function pmethod() {
-			$Programme = array ('Online' => 'Online Payment', 'COD' =>  'Cash On Delivery',);
+			$Pmethod = array ('Online' => 'Online Payment', 'COD' =>  'Cash On Delivery',);
 
 			echo '<select name="Pmethod">';
-			foreach ($Programme as $key => $value) {
+			foreach ($Pmethod as $key => $value) {
 				echo "<option value=\"$key\">$value</option>\n";
 			}
 			echo '</select>';
