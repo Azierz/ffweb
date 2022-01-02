@@ -19,19 +19,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$errors = array(); // Initialize error array.
 
-	// Validate the email address:
-	if (empty($_POST['email'])) {
-		$errors[] = 'You forgot to enter your email.';
-	} else {
-		$em = mysqli_real_escape_string($dbc, trim($_POST['email']));
-	}
+	// // Validate the email address:
+	// if (empty($_POST['email'])) {
+	// 	$errors[] = 'You forgot to enter your email.';
+	// } else {
+	 	$em = mysqli_real_escape_string($dbc, trim($_POST['email']));
+	// }
 
-	// Validate the password:
-	if (empty($_POST['pass'])) {
-		$errors[] = 'You forgot to enter your password.';
-	} else {
-		$p = mysqli_real_escape_string($dbc, trim($_POST['pass']));
-	}
+	// // Validate the password:
+	// if (empty($_POST['pass'])) {
+	// 	$errors[] = 'You forgot to enter your password.';
+	// } else {
+	 	$p = mysqli_real_escape_string($dbc, trim($_POST['pass']));
+	// }
 
 	if (empty($errors)) { // If everything's OK.
 
@@ -68,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$_SESSION['CustID'] = $row['CustID'];
 			$_SESSION['CustName'] = $row['CustName'];
 			$_SESSION['Email'] = $em;
+			$_SESSION['Address'] = $row['Address'];
 
 			// Redirect user
 			header("Location:index.php");
@@ -97,11 +98,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<table style="font-size: 100%">
 		<tr>
 			<td><p>E-Mail</p></td>
-			<td><p><input type="email" name="email" size="40"/></p></td>
+			<td><p><input type="email" name="email" size="40" required /></p></td>
 		</tr>
 		<tr>
 			<td><p>Password</p></td>
-			<td><p><input type="password" name="pass" size="20"/></p></td>
+			<td><p><input type="password" name="pass" size="20" required /></p></td>
 		</tr>
 	</table>
 	<p align="right"><input type="submit" name="submit" value="Sign In" /></p>

@@ -10,42 +10,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$errors = array(); // Initialize an error array.
 
-	// Check for a name:
-	if (empty($_POST['name'])) {
-		$errors[] = 'You forgot to enter your name.';
-	} else {
+	// // Check for a name:
+	// if (empty($_POST['name'])) {
+	// 	$errors[] = 'You forgot to enter your name.';
+	// } else {
 		$n = trim($_POST['name']);
-	}
+	// }
 
-	// Check for a password and match against the confirmed password:
-	if (empty($_POST['pass1'])) {
-		$errors[] = 'You forgot to enter your password.';
-	} else {
-		$p = trim($_POST['pass1']);
-	}
+	// // Check for a password and match against the confirmed password:
+	// if (empty($_POST['pass1'])) {
+	// 	$errors[] = 'You forgot to enter your password.';
+	// } else {
+	 	$p = trim($_POST['pass1']);
+	// }
 
-	// Validate the phone no:
-	if (empty($_POST['phone_no'])) {
+	// // Validate the phone no:
+	// if (empty($_POST['phone_no'])) {
 
-		$errors[] = 'You forgot to enter your phone number.';
-	} else {
+	// 	$errors[] = 'You forgot to enter your phone number.';
+	// } else {
 		$pn = trim($_POST['phone_no']);
 
-	}
+	// }
 
-	// Check for a last name:
-	if (empty($_POST['address'])) {
-		$errors[] = 'You forgot to enter your address.';
-	} else {
-		$ad = trim($_POST['address']);
-	}
+	// // Check for a last name:
+	// if (empty($_POST['address'])) {
+	// 	$errors[] = 'You forgot to enter your address.';
+	// } else {
+	 	$ad = trim($_POST['address']);
+	// }
 
-	// Check for an email address:
-	if (empty($_POST['email'])) {
-		$errors[] = 'You forgot to enter your email address.';
-	} else {
-		$e = trim($_POST['email']);
-	}
+	// // Check for an email address:
+	// if (empty($_POST['email'])) {
+	// 	$errors[] = 'You forgot to enter your email address.';
+	// } else {
+	 	$e = trim($_POST['email']);
+	// }
 
 	if (empty($errors)) { // If everything's OK. ($fn && $ln && $e)
 
@@ -108,23 +108,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<table border="0" id="reg">
 		<tr>
 			<td>Full Name:</td>
-			<td><input type="text" name="name" size="15" maxlength="20" value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>" /></td>
+			<td><input type="text" name="name" size="15" maxlength="20" value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>" required /></td>
 		</tr>
 		<tr>
 			<td>Password:</td>
-			<td><input type="password" name="pass1" size="10" maxlength="20" value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>"  /></td>
+			<td><input type="password" name="pass1" size="10" maxlength="20" value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>" required /></td>
 		</tr>
 		<tr>
 			<td>Phone Number:</td>
-			<td><input type="text" name="phone_no" size="20" maxlength="40" value= "<?php if (isset($_POST['phone_no'])) echo $_POST['phone_no']; ?>" /></td>
+			<td><input type="text" name="phone_no" size="20" maxlength="40" value= "<?php if (isset($_POST['phone_no'])) echo $_POST['phone_no']; ?>" required /></td>
 		</tr>
 		<tr>
 			<td>Address:</td>
-			<td><input type="text" name="address" size="40" maxlength="100" value="<?php if (isset($_POST['address'])) echo $_POST['address']; ?>"  /></td>
+			<td><input type="text" name="address" size="40" maxlength="100" value="<?php if (isset($_POST['address'])) echo $_POST['address']; ?>" required /></td>
 		</tr>
 		<tr>
 			<td>Email Address:</td>
-			<td><input type="text" name="email" size="20" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"  /></td>
+			<td><input type="email" name="email" size="20" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" required /></td>
 		</tr>
 		<tr>
 			<td colspan="2"><input type="submit" name="submit" value="Register" /></td>
