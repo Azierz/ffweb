@@ -10,51 +10,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$errors = array(); // Initialize an error array.
 
-	// // Check for a name:
-	// if (empty($_POST['name'])) {
-	// 	$errors[] = 'You forgot to enter your name.';
-	// } else {
-		$n = trim($_POST['name']);
-	// }
-
-	// // Check for a password and match against the confirmed password:
-	// if (empty($_POST['pass1'])) {
-	// 	$errors[] = 'You forgot to enter your password.';
-	// } else {
-	 	$p = trim($_POST['pass1']);
-	// }
-
-	// // Validate the phone no:
-	// if (empty($_POST['phone_no'])) {
-
-	// 	$errors[] = 'You forgot to enter your phone number.';
-	// } else {
-		$pn = trim($_POST['phone_no']);
-
-	// }
-
-	// // Check for a last name:
-	// if (empty($_POST['address'])) {
-	// 	$errors[] = 'You forgot to enter your address.';
-	// } else {
-	 	$ad = trim($_POST['address']);
-	// }
-
-	// // Check for an email address:
-	// if (empty($_POST['email'])) {
-	// 	$errors[] = 'You forgot to enter your email address.';
-	// } else {
-	 	$e = trim($_POST['email']);
-	// }
+	$n = trim($_POST['name']);
+	$p = trim($_POST['pass1']);
+	$pn = trim($_POST['phone_no']);
+	$ad = trim($_POST['address']);
+	$e = trim($_POST['email']);
 
 	if (empty($errors)) { // If everything's OK. ($fn && $ln && $e)
-
-		// Register the user in the database...
 
 		require ('includes/constants.php'); // Connect to the db.
 
 		//  Test for unique email address
-
 		$q1 = "SELECT email FROM customer WHERE email='$e'";
 		$r1 = @mysqli_query($dbc, $q1);
 

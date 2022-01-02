@@ -19,19 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$errors = array(); // Initialize error array.
 
-	// // Validate the email address:
-	// if (empty($_POST['email'])) {
-	// 	$errors[] = 'You forgot to enter your email.';
-	// } else {
-	 	$em = mysqli_real_escape_string($dbc, trim($_POST['email']));
-	// }
+	$em = mysqli_real_escape_string($dbc, trim($_POST['email']));
+	$p = mysqli_real_escape_string($dbc, trim($_POST['pass']));
 
-	// // Validate the password:
-	// if (empty($_POST['pass'])) {
-	// 	$errors[] = 'You forgot to enter your password.';
-	// } else {
-	 	$p = mysqli_real_escape_string($dbc, trim($_POST['pass']));
-	// }
 
 	if (empty($errors)) { // If everything's OK.
 

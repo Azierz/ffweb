@@ -222,27 +222,23 @@ body {
 	border-radius: 5px;
 }
 .btn-group button {
-  background-color: #FFC847;
-  border: 1px solid black;
-  padding: 10px 24px;
-  cursor: pointer;
-  float: left;
+	background-color: #FFC847;
+	border: 1px solid black;
+	padding: 10px 24px;
+	cursor: pointer;
+	float: center;
 	position: relative;
-	top: 0.5em;
-	left: 28em;
 }
 /* Clear floats (clearfix hack) */
 .btn-group:after {
-  content: "";
-  clear: both;
-  display: table;
+	content: "";
+	clear: both;
+	display: table;
 }
-.btn-group button:not(:last-child) {
-  border-right: none; /* Prevent double borders */
-}
+
 /* Add a background color on hover */
 .btn-group button:hover {
-  background-color: #FCFC00;
+	background-color: #FCFC00;
 }
 /* use in indexadmin.php - END */
 
@@ -337,7 +333,6 @@ body {
 /* menu details table - END */
 
 /* payment - START*/
-
 .payment {
 	font-size: 17px;
 	padding: 8px;
@@ -432,6 +427,13 @@ body {
 	color: grey;
 }
 /*payment - END*/
+
+/* upload - START */
+#success {
+	padding:20px 20px 0;
+	font-weight: bold;
+}
+/* upload - END */
 /* CONTENT END */
 
 /* FOOTER START */

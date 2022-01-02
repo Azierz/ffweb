@@ -1,48 +1,52 @@
 <?php
-$page_title = 'Menu Details';
-$page_text = 'Menu Details';
+$page_title = 'Product Deletion';
+$page_text = 'Product Deletion';
 include ('includes/header.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	
-	$CartID = $_POST['cart'];
 
-	require ('includes/constants.php');
+	if($_POST['con_del'] == "yes") {
 
-	$q = "SELECT * FROM product WHERE ProductID='$CartID'";
-	$r = @mysqli_query ($dbc,$q);
+		$DelID = $_POST['delete'];
 
-	if (!mysqli_num_rows($r) == 1) {
-		echo '<script>
-		window.alert("\nERROR!\nPlease try again later.");
-		setTimeout(function(){location.href="menu.php"},0);
-		</script>';
+		require ('includes/constants.php');
+
+		$q = "DELETE FROM product WHERE ProductID='$DelID' LIMIT 1";
+		$r = @mysqli_query ($dbc,$q);
+
+		if (mysqli_affected_rows($dbc) == 1) {
+			echo '<script>
+			window.alert("\nSUCCESS!\nProduct has been deleted.");
+			setTimeout(function(){location.href="maintenance.php"},0);
+			</script>';
+		} else {
+			echo '<script>
+			window.alert("\ERROR!\nProduct cannot not be deleted.\nPlease try again later.");
+			setTimeout(function(){location.href="maintenance.php"},0);
+			</script>';
+		}
+
 	} else {
-		$i = $_POST["cart"];
-		$qty = $_SESSION["qty"][$i] + 1;
-		$_SESSION["amounts"][$i] = $amounts[$i] * $qty;
-		$_SESSION["cart"][$i] = $i;
-		$_SESSION["qty"][$i] = $qty;
-
 		echo '<script>
-		window.alert("\nSUCCESS!\nProduct added to cart.");
-		setTimeout(function(){location.href="menu.php"},0);
+		window.alert("\CONFIRMED!\nProduct will not be deleted.");
+		setTimeout(function(){location.href="maintenance.php"},0);
 		</script>';
 	}
+	
+	
 }
 ?>
 
-<h1>Fruity Fruit Menu Details</h1>
+<h1>Product Deletion</h1>
 
 <div class="menudetails">
 	<div class="row">
-
 	  	<div class="column">
 		<table>
 			<?php
 			require ('includes/constants.php');
 
-			$ProductID = $_GET["ProductID"];
+			$ProductID = $_GET["id"];
 			
 			$q = "SELECT * FROM product WHERE ProductID='$ProductID'";
 			$r = @mysqli_query ($dbc,$q);
@@ -77,9 +81,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						<tr>
 							<td>Quantity Left:<br><br>'.$data["Quantity"].'</td>
 							<td>
-							<form action="menudetails.php" method="POST">
-								<input type="text" name="cart" value="'.$data["ProductID"].'" hidden>
-								<input type="submit" name="submit" value="Add To Cart" />
+							<form action="delete_product.php" method="POST">
+								<p> Confirm delete this product? </p>
+								<input type="radio" name="con_del" value="yes"> Yes
+								<input type="radio" name="con_del" value="no"> No
+								<input type="text" name="delete" value="'.$data["ProductID"].'" hidden>
+								<input type="submit" name="submit" value="Confirm" />
 							</form>
 							</td>
 						</tr>

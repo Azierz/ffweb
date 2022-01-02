@@ -14,34 +14,20 @@ if (empty($_SESSION['AdminID'])) {
 
 <h1>Category</h1>
 
-
-	<!-- <img src="includes/images/pastel.png" style="width:100%"> -->
 	<div class="menu">
 		<table>
 		  <tr>
-		    <tH>Product Maintenance</tH>
-		    <tH>Manage Customer</tH>
-		    <tH>Manage Order</tH>
-				<tH>Admin Maintenance</tH>
-		    <tH>Check Review</tH>
+		    <th>Product Maintenance</th>
+		    <th>Customer List</th>
+		    <th>Order List</th>
 		  </tr>
 			<tr>
-				<td><button class="btn"><a href="#">GO</a></button></td>
-				<td><button class="btn"><a href="#">GO</a></button></td>
-				<td><button class="btn"><a href="#">GO</a></button></td>
-				<td><button class="btn"><a href="#">GO</a></button></td>
-				<td><button class="btn"><a href="#">GO</a></button></td>
+				<td><button class="btn"><a href="maintenance.php">GO</a></button></td>
+				<td><button class="btn"><a href="customers.php">GO</a></button></td>
+				<td><button class="btn"><a href="orders.php">GO</a></button></td>
 			</tr>
 		</table>
 	</div>
-	<div class="btn-group">
-			<button><a href="#">ADD</a></button>
-			<button><a href="#">EDIT</a></button>
-			<button><a href="#">DELETE</a></button>
-	</div>
-
-
-
 <?php
 include ('includes/footer.html');
 ?>

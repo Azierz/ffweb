@@ -49,12 +49,6 @@ if ($rI) {
 }
 ?>
 
-<h1>Order Success!</h1>
-
-<img src="includes/images/pastel.png" style="width:100%">
-<!-- <div class="centered"><h2>THANK YOU FOR PURCHASING WITH US!</h2> -->
-</div>
-
 <?php
 include ('includes/footer.html');
 ?>

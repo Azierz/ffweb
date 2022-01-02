@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html>
 <head>
 	<title><?php echo $page_title; ?></title>
@@ -14,10 +15,16 @@
 	<div id="navigation">
 		<ul>
 		<?php
-
-		if (isset($_SERVER["HTTP_REFERER"])) {
-			echo '<li><a href="'. $_SERVER["HTTP_REFERER"] .'">Back</a></li>';
+		if (!empty($_SESSION['CustID'])) {
+			if (isset($_SERVER["HTTP_REFERER"])) {
+				echo '<li><a href="'. $_SERVER["HTTP_REFERER"] .'">Back</a></li>';
+			}
+		} elseif (!empty($_SESSION['AdminID'])) {
+			echo '<li><a href="logout.php">Sign Out</a></li>
+			<li><a href="indexadmin.php">Back to Home</a></li>';
 		}
+
+		
 
 		?>
 

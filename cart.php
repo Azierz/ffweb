@@ -3,8 +3,6 @@ $page_title = 'Shopping Cart';
 $page_text = 'Shopping Cart';
 include ('includes/header2.php');
 
-//print_r($_SESSION);		//TEST SES OUTPUT
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	if($_POST['Pmethod'] == 'Online') {
@@ -15,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		header("Location:checkout.php");
 	}
 }
-
 ?>
 
 <h1>Fruity Fruit Cart</h1>
@@ -38,14 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						setTimeout(function(){location.href="menu.php"},0);
 						</script>';
 				}
-				// for($i=0; $i<count($_SESSION['cart']); $i++) {
 					
 				$TotalPayment = 0;
 				foreach($_SESSION['cart'] as $cart => $val) {
 					
 					$ProdID = $val;
 					$Qty = $_SESSION['qty'][$val];
-					//echo $testval;
 
 					$q = "SELECT * FROM product WHERE ProductID='$ProdID'";
 					$r = @mysqli_query ($dbc,$q);
@@ -69,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							echo "</td>
 							<td rowspan='2'>RM ".$Price."</td>
 							<td rowspan='2'>".$Qty."</td>
-							<td rowspan='2'><a href='menudetails.php'>RM ".$TotalPrice."</a></td>
+							<td rowspan='2'>RM ".$TotalPrice."</td>
 						</tr>
 						<tr>
 							<td style=\"border-top: 0px\">".$data['Name']."</td>
@@ -77,7 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						";
 					}} 
 				}
-				// }
 				?>
 			 </table>
 			
